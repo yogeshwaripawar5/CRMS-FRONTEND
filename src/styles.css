@@ -1,1 +1,177 @@
 /* You can add global styles to this file, and also import other style files */
+/* @import '~material-icons/iconfont/material-icons.css'; */
+@import "~@fortawesome/fontawesome-free/css/all.css";
+
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+/* .backgroundimage {
+ 
+    background-image: url('./assets/backgroundlogo.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(10px);
+}
+.backgroundimage img{
+    width: 200px;
+    height: 200px;
+    opacity: 0.1;
+} */
+
+.card {
+    border-width: 2px;
+    border-color: black;
+    background-color: transparent;
+}
+
+.card input {
+    border-width: 1px;
+    border-color: black;
+}
+
+.card textarea, .card select {
+    border-width: 1px;
+    border-color: black;
+}
+
+.form-group textarea {
+    border: 1px solid black;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+
+
+label {
+    font-weight: 500;
+}
+
+
+.table-common-border {
+    border: 2px solid brown;
+    box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
+    background: transparent;
+}
+
+.table-common-border tr, th, td {
+    border-color: black;
+    background: transparent;
+}
+
+.table-common-border td {
+    background-color: transparent;
+}
+
+.table-common-border th {
+    background-color: transparent;
+    color: white;
+}
+
+.table tbody>tr>td {
+    vertical-align: middle;
+}
+
+.btn-w {
+    width: 15%;
+}
+
+.table thead {
+
+    background-color: rgb(134, 73, 73);
+    color: white;
+}
+
+
+
+/* ::ng-deep .mat-step-header {
+    background-color: transparent;
+    background: transparent;
+
+}
+
+::ng-deep .mat-mat-horizontal-stepper {
+    background-color: transparent;
+    background: transparent;
+} */
+
+.transparent-stepper {
+    background-color: transparent !important;
+}
+
+.stepper-content {
+    background: white;
+    /* Set the background color of the content area if needed */
+    padding: 20px;
+    /* Add padding to the content area if needed */
+}
+
+.buttons-stepper {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    margin-right: 20px;
+    padding: 2%;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.trhead{
+    background-color: antiquewhite;
+    color: rgb(80, 4, 4);
+    font-weight: bold;
+     font-size: 16px;
+    }
+
+.capitalize-first {
+    text-transform: capitalize;
+    }
+
+    .ngx-toastr {
+    width: 500px !important;  
+    }
+
+.btn-hover:hover {
+    font-weight: bolder;
+transform: scale(1.1); 
+transition: transform 0.3s ease;
+}
+
+
+.main-heading {
+    font-size: 22px;
+    text-align: center;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+    font-weight: bold;
+    color: black;
+    text-shadow:
+      1px 1px 0 #f0aef0, /* Top-left */
+      -1px -1px 0 #f1f3f2, /* Bottom-right */
+      1px -1px 0 #c1ece7, /* Top-right */
+      -1px 1px 0 #fdacac; /* Bottom-left */
+  }
+
+  label{
+    font-weight: bolder !important;
+}

@@ -1,0 +1,79 @@
+<app-spinner *ngIf="isSpinnerLoading"></app-spinner>
+<div class="mt-5"></div>
+<div class="main-heading">BRANCH INPUT FORM</div>
+<div class="mt-4"></div>
+<div *ngIf="showForm=='no'" class="justify-content-center d-flex">
+<div class="card table-common-border" style="width: 40%; " >
+    
+  <div class="card-body" >
+    <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+<br><div class="form-group">
+    <label for="branchName">Enter Region Name: 
+      <span style="color: red; font-size: 18px;">*</span>
+    </label></div><div>
+    <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+    <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+    </div>
+
+
+    <label for="branchName">Enter Branch Name: 
+        <span style="color: red; font-size: 18px;">*</span>
+      </label><div>
+      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+      </div>
+
+
+      <label for="branchName">Enter Branch code: 
+        <span style="color: red; font-size: 18px;">*</span>
+      </label><div>
+      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+      </div>
+
+      <label for="branchName">Enter Branch Requirement: 
+        <span style="color: red; font-size: 18px;">*</span>
+      </label><div>
+      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+      </div>
+
+      <label for="branchName">Enter Branch Closing balance: 
+        <span style="color: red; font-size: 18px;">*</span>
+      </label><div>
+      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+      </div>
+
+              <!-- ===========================SELECT CUSTOMER TYPE START========================== -->
+              <div class="form-group">
+                <label for="custType">Priority : <span style="color: red; font-size: 18px; font-size: 18px">*</span></label>
+                <div class="mt-2"></div>
+                <select >
+                    <option selected disabled value="">Choose.. </option>
+                    <option value="High">High</option>
+                    <option value="Medium">Medium</option>
+                    <option value="Low">Low</option>
+                  
+                  </select>
+                
+                  </div>
+              <div class="mt-4"></div>
+
+  <!-- </div> -->
+  <div class="mt-4"></div>
+  <!-- ===========================OTHER INPUT FIELD EXAMPLE END========================== -->
+
+  <!-- ===========================SUBMIT BUTTON========================== -->
+  <div></div><br><br>
+  <div class="justify-content-center d-flex">
+    <button type="submit" class="btn btn-hover btn-danger btn-md w-50">Submit</button>
+  </div>
+
+  <div class="d-flex justify-content-center">
+    <button>Click Me!</button>
+  </div>
+</form>
+</div>
+</div>
+</div>

@@ -1,8 +1,7 @@
 .inputfield {
-    height: 30px;
-    width: 200px;
-  }
+  height: 50px
+}
 
-  label{
-    font-weight: 500;
-  }
+label{
+  font-weight: 500;
+}

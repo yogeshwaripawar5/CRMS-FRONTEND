@@ -8,6 +8,7 @@ import { HeaderComponent } from './COMPONENT/header/header.component';
 import { WatermarkComponent } from './COMPONENT/watermark/watermark.component';
 import { BranchInputFormComponent } from './COMPONENT/branch-input-form/branch-input-form.component';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,9 @@ import { FormsModule } from '@angular/forms';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

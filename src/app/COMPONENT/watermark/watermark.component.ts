@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./watermark.component.css']
 })
 export class WatermarkComponent {
+  constructor(){
+    console.log("COMPONENT WATERMARK LOADED")
+  }
 
 }

@@ -61,10 +61,17 @@ label {
 }
 
 
-.table-common-border {
+/* .table-common-border {
     border: 2px solid brown;
     box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
     background: transparent;
+} */
+
+.card.table-common-border {
+    border: 2px solid brown;
+    box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
+    background: transparent;
+    border-radius: 4px;  /* Optional: set border radius */
 }
 
 .table-common-border tr, th, td {

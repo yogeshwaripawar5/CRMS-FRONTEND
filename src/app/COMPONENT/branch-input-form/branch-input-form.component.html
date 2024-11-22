@@ -8,10 +8,10 @@
   <div class="card-body" >
     <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
 <br><div class="form-group">
-    <label for="branchName">Enter Region Name: 
+    <label for="regionName">Enter Region Name: 
       <span style="color: red; font-size: 18px;">*</span>
     </label></div><div>
-    <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+    <input type="text" id="regionName" class="form-control" placeholder="Region Name" name="regionName" class="form-select inputfield" [(ngModel)]="branchDemandDetail.region"  #region="ngModel"/>
     <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
     </div>
 
@@ -19,37 +19,46 @@
     <label for="branchName">Enter Branch Name: 
         <span style="color: red; font-size: 18px;">*</span>
       </label><div>
-      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" [(ngModel)]="branchDemandDetail.branchName" #branchName="ngModel"/>
       <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
       </div>
 
 
-      <label for="branchName">Enter Branch code: 
+      <label for="branchCode">Enter Branch code: 
         <span style="color: red; font-size: 18px;">*</span>
       </label><div>
-      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <input type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode" class="form-select inputfield" [(ngModel)]="branchDemandDetail.brcode" #brcode="ngModel"/>
       <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
       </div>
 
-      <label for="branchName">Enter Branch Requirement: 
+      <label for="branchReq">Enter Branch Cash Requirement: 
         <span style="color: red; font-size: 18px;">*</span>
       </label><div>
-      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <input type="number" id="branchReq" class="form-control" placeholder="Branch Cash Requirement" name="branchReq" class="form-select inputfield" [(ngModel)]="branchDemandDetail.cashDemand" #cashDemand="ngModel"/>
       <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
-      </div>
+      </div> 
 
-      <label for="branchName">Enter Branch Closing balance: 
+      <label for="brClosBal">Enter Branch Closing balance: 
         <span style="color: red; font-size: 18px;">*</span>
       </label><div>
-      <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName" class="form-select inputfield" />
+      <input type="number" id="brClosBal" class="form-control" placeholder="Branch Closing Balance" name="brClosBal" class="form-select inputfield" [(ngModel)]="branchDemandDetail.probableCashOnHand" #probableCashOnHand="ngModel" />
+      <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
+       </div>
+
+    
+
+      <label for="brJust">Enter Justification: 
+        <span style="color: red; font-size: 18px;">*</span>
+      </label><div>
+      <textarea id="brJust" class="form-control" placeholder="Branch Closing Balance" name="brJust" class="form-select inputfield" [(ngModel)]="branchDemandDetail.justification" #justification="ngModel"></textarea>
       <!-- <div *ngIf="f.submitted && branchName.errors?.['required']" class="invalid-feedback"> -->
       </div>
 
               <!-- ===========================SELECT CUSTOMER TYPE START========================== -->
               <div class="form-group">
-                <label for="custType">Priority : <span style="color: red; font-size: 18px; font-size: 18px">*</span></label>
+                <label for="priorityFlag">Priority : <span style="color: red; font-size: 18px; font-size: 18px">*</span></label>
                 <div class="mt-2"></div>
-                <select >
+                <select class="form-select inputfield" name="priorityFlag" [(ngModel)]="branchDemandDetail.priorityFlag" #priorityFlag="ngModel">
                     <option selected disabled value="">Choose.. </option>
                     <option value="High">High</option>
                     <option value="Medium">Medium</option>
@@ -65,14 +74,12 @@
   <!-- ===========================OTHER INPUT FIELD EXAMPLE END========================== -->
 
   <!-- ===========================SUBMIT BUTTON========================== -->
-  <div></div><br><br>
+  <div></div>
   <div class="justify-content-center d-flex">
     <button type="submit" class="btn btn-hover btn-danger btn-md w-50">Submit</button>
   </div>
 
-  <div class="d-flex justify-content-center">
-    <button>Click Me!</button>
-  </div>
+
 </form>
 </div>
 </div>

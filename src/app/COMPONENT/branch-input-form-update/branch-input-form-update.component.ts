@@ -22,7 +22,7 @@ export class BranchInputFormUpdateComponent {
   constructor(private branchDemandService: DemandService,private router:Router){}
 
   showForm:string='no';
-  brcode:string='5105';
+  brcode:string='5129';
 
   ngOnInit(): void {
 
@@ -43,6 +43,8 @@ onSubmit(): void {
 
   console.log(" In branch input component")
   console.log(this.branchDemandDetail);
+
+  console.log(this.branchDemandDetail.retentionLimit);
 
   this.postData();
 
@@ -77,6 +79,8 @@ onSubmit(): void {
 
           this.branchDemandDetail=response;
 
+          console.log('Cash retention Limit'+this.branchDemandDetail.retentionLimit)
+
 
       // alert(JSON.stringify(response))
                 this.router.navigate(['branch']) //redirect page to branch
@@ -96,6 +100,9 @@ getRetentionLimit(){
     console.log(" Deviation Compliance Data :")
     console.log('response .. '+response);
     this.cashRetentionLimit=response;
+
+    this.branchDemandDetail.retentionLimit=this.cashRetentionLimit.retentionLimit;
+
   });
 
 }

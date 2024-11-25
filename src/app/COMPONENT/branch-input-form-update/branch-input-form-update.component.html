@@ -121,7 +121,7 @@
           <span style="color: red; font-size: 18px;">*</span>
         </label>
         <div>
-          <input  [(ngModel)]="cashRetentionLimit.retentionLimit" type="number" id="retentionLimit" class="form-control" placeholder="Branch Cash Retention Limit " name="retentionLimit"
+          <input  [(ngModel)]="branchDemandDetail.retentionLimit" type="number" id="retentionLimit" class="form-control inputfield" placeholder="Branch Cash Retention Limit " name="retentionLimit"
             [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required/>
         </div>
         <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { BranchDemandService } from './branch-demand.service';
+import { IpAddressService } from './ip-address.service';
 
-describe('BranchDemandService', () => {
-  let service: BranchDemandService;
+describe('IpAddressService', () => {
+  let service: IpAddressService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BranchDemandService);
+    service = TestBed.inject(IpAddressService);
   });
 
   it('should be created', () => {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DemandService } from 'src/app/demand.service';
 import { BranchDemandDetail } from 'src/app/MODEL/branch-demand-detail';
+import { CashRetentionLimit } from 'src/app/MODEL/cash-retention-limit';
 
 @Component({
   selector: 'app-branch-input-form-update',
@@ -11,6 +12,8 @@ import { BranchDemandDetail } from 'src/app/MODEL/branch-demand-detail';
 export class BranchInputFormUpdateComponent {
 
   branchDemandDetail = {} as BranchDemandDetail;
+  cashRetentionLimit = {} as CashRetentionLimit;
+
 
   // branchDemandDetail: any = {
   //   // Define properties based on your API's expected structure
@@ -19,11 +22,18 @@ export class BranchInputFormUpdateComponent {
   constructor(private branchDemandService: DemandService,private router:Router){}
 
   showForm:string='no';
+  brcode:string='5105';
 
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
+  this.getRetentionLimit();
+
+  
+    
+
 
   }
+  
   isSpinnerLoading:boolean = false;
 
 onSubmit(): void {
@@ -76,6 +86,17 @@ onSubmit(): void {
       console.error("Error Occur"+JSON.stringify(error))
     }
   );
+
+}
+
+
+getRetentionLimit(){
+  this.branchDemandService.branchRetentionLimit(this.brcode).subscribe((response) => {
+    // Handle result
+    console.log(" Deviation Compliance Data :")
+    console.log('response .. '+response);
+    this.cashRetentionLimit=response;
+  });
 
 }
 

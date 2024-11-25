@@ -26,7 +26,7 @@ body {
     opacity: 0.1;
 } */
 
-.card {
+.card.card {
     border-width: 2px;
     border-color: black;
     background-color: transparent;
@@ -182,3 +182,73 @@ transition: transform 0.3s ease;
   label{
     font-weight: bolder !important;
 }
+
+
+/* **************************************************************************************************** */
+.custom-styles {
+    margin-bottom: 40px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+/* Custom Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+
+  .dropdown-toggle {
+    background-color: #ff5733; /* Orange background */
+    border: none;
+    color: rgb(161, 31, 31);
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 25px; /* Rounded button */
+    transition: all 0.3s ease-in-out;
+  }
+
+  .dropdown-toggle:hover {
+    background-color: #e04e2f; /* Darker orange on hover */
+    cursor: pointer;
+    transform: translateY(-2px); /* Slightly lift button on hover */
+  }
+
+  /* Dropdown Menu */
+  .dropdown-menu {
+    background-color: #f3b2b2; /* White background for the menu */
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+    padding: 10px 0;
+    min-width: 160px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    position: relative;
+  }
+
+  .dropdown-menu.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  /* Dropdown Item */
+  .dropdown-item {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #333;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    border: #f0aef0;
+  }
+
+  /* Hover Effect on Dropdown Items */
+  .dropdown-item:hover {
+    background-color: #80d3ec; /* Light grey background */
+    color: #ff5733; /* Color change to match button */
+    border-radius: 5px; /* Rounded corners for items */
+  }
+
+  /* Active Item Style */
+  .dropdown-item:active {
+    background-color: #f1f1f1;
+    color: #d9534f; /* Red color for active item */
+  }

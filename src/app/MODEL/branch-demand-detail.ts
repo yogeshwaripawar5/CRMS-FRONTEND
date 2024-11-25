@@ -1,7 +1,7 @@
 export interface BranchDemandDetail {
 
     probableCashOnHand:number,
-    cashRetentionLimit:number,
+    retentionLimit:number,
     cashDemand:number,
     justification:string,
     priorityFlag:string,

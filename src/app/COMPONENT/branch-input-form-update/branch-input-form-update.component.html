@@ -1,60 +1,216 @@
-<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
-  
-    <div class="card table-common-border">
-     <div class="card-body justify-content-center">
+<app-spinner *ngIf="isSpinnerLoading"></app-spinner>
+<div class="mt-5"></div>
+<div class="main-heading">BRANCH INPUT FORM</div>
+<div class="mt-4"></div>
+<!-- <div class="container-fluid pb-2" style="margin-bottom: 40px; padding-left: 20px; padding-right: 20px;"> -->
+
+<div *ngIf="showForm=='no'" class="justify-content-center d-flex">
+  <div class="card table-common-border container-fluid pb-2 custom-styles" style="width: 80%; ">
+
+    <div class="card-body">
+      <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+        <!-- <div class="container-fluid pb-2 custom-styles"  > -->
+
+        <br>
         <div class="mt-2"></div>
-    <div class="row">
-      <!-- //PART 1 -->
-    <div class="col-md-6">
+        <div class="row">
+            <!-- //PART 1 -->
+          <div class="col-md-6">
+            <div class="card ">
+                <div class="card-body">
+
+        <div class="form-group">
+
+          <label for="regionName">Enter Region Name:
+            <span style="color: red; font-size: 18px;">*</span>
+          </label>
+
+          <div>
+            <input required  [ngClass]="{ 'is-invalid': f.submitted && region.errors }" type="text" id="regionName" class="form-control" placeholder="Region Name" name="regionName"
+              class="form-control inputfield" [(ngModel)]="branchDemandDetail.region"
+               #region="ngModel" />
+          </div>
 
 
-            <!--immovable security details-->
-          <div class="card">
-              <div class="card-body">
-                  <p class="text-danger title">Branch Details</p>
-                  <br/>            
-                  <div class="col-md-12 mt-2" >
-                    
-                    <label for="regionName">Enter Region Name:
-                        <span style="color: red; font-size: 18px;">*</span>
-                      </label>
-            
-                      <div>
-                        <input required  [ngClass]="{ 'is-invalid': f.submitted && region.errors }" type="text" id="regionName" class="form-control" placeholder="Region Name" name="regionName"
-                          class="form-control inputfield" [(ngModel)]="branchDemandDetail.region"
-                           #region="ngModel" />
-                      </div>
-                                   
-                      <div *ngIf="f.submitted && region.errors " class="text-danger">
-                        <div *ngIf="region.errors['required']">Region Name is required</div>
-                      </div>
 
-                   </div>   
-                   
-                   
-                    <div class="col-md-12 mt-2">
-                        
-                        <label for="branchName">Enter Branch Name:
-                            <span style="color: red; font-size: 18px;">*</span>
-                          </label>
-                  
-                          <div>
-                            <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName"
-                              class="form-control inputfield" [(ngModel)]="branchDemandDetail.branchName"
-                              [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }" #branchName="ngModel" required />
-                          </div>
-                  
-                          <div *ngIf="f.submitted && branchName.errors " class="text-danger">
-                            <div *ngIf="branchName.errors['required']">Branch Name is required</div>
-                          </div>
-                          <div class="mt-4"></div>
-                  
-                    </div> 
 
-                    <div class="col-md-12 mt-2">
-                      
-                      </div>
-                  </div> 
-          
-              </div>
+          <div *ngIf="f.submitted && region.errors " class="text-danger">
+            <div *ngIf="region.errors['required']">Region Name is required</div>
+          </div>
+        
+
+        <div class="mt-4"></div>
+        
+<!-- ************************************** BRANCH NAME *********************************************************************************** -->
+
+        <label for="branchName">Enter Branch Name:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+
+        <div>
+          <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.branchName"
+            [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }" #branchName="ngModel" required />
+        </div>
+
+        <div *ngIf="f.submitted && branchName.errors " class="text-danger">
+          <div *ngIf="branchName.errors['required']">Branch Name is required</div>
+        </div>
+        <div class="mt-4"></div>
+
+<!-- ************************************** BRANCH CODE *********************************************************************************** -->
+
+        <label for="branchCode">Enter Branch code:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.brcode" 
+            [ngClass]="{ 'is-invalid': f.submitted && brcode.errors }" #brcode="ngModel" required />
+        </div>
+
+        <div *ngIf="f.submitted && brcode.errors " class="text-danger">
+          <div *ngIf="brcode.errors['required']">Branch Code is required</div>
+        </div>
+        <div class="mt-4"></div>
+
+        <!-- ************************************** BRANCH CASH REQUIREMENT *********************************************************************************** -->
+
+        <label for="branchReq">Enter Branch Cash Requirement:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input type="number" id="branchReq" class="form-control" placeholder="Branch Cash Requirement"
+            name="branchReq" class="form-control inputfield" [(ngModel)]="branchDemandDetail.cashDemand"
+            [ngClass]="{ 'is-invalid': f.submitted && cashDemand.errors }" #cashDemand="ngModel" required/>
+        </div>
+
+        <div *ngIf="f.submitted && cashDemand.errors " class="text-danger">
+        <div *ngIf="cashDemand.errors['required']">Branch Cash Requirement is required</div>
+        </div>
+      <div class="mt-4"></div>
+
+        </div>
+          </div>
+          </div>
+          </div>
+    
+ <!-- ************************************** BRANCH CODE *********************************************************************************** -->
+ <div class="col-md-6">
+      <!-- comments on title search and CERSAI -->
+   <div class="card">
+    <div class="card-body">
+
+        <label for="brClosBal">Enter Branch Closing balance:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input type="number" id="brClosBal" class="form-control" placeholder="Branch Closing Balance" name="brClosBal"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.probableCashOnHand"
+            [ngClass]="{ 'is-invalid': f.submitted && probableCashOnHand.errors }" #probableCashOnHand="ngModel" required/>
+        </div>
+        <div *ngIf="f.submitted && probableCashOnHand.errors " class="text-danger">
+          <div *ngIf="probableCashOnHand.errors['required']">Branch Cash On Hand is required</div>
+          </div>
+        <div class="mt-4"></div>
+
+         <!-- ************************************** BRANCH RETENTION *********************************************************************************** -->
+
+
+         <label for="retentionLimit">Enter Branch Retention Limit:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input  [(ngModel)]="cashRetentionLimit.retentionLimit" type="number" id="retentionLimit" class="form-control" placeholder="Branch Cash Retention Limit " name="retentionLimit"
+            [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required/>
+        </div>
+        <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">
+          <div *ngIf="retentionLimit.errors['required']">Branch Cash Retention Limit is required</div>
+          </div>
+        <div class="mt-4"></div>
+
+<!-- 
+        <label for="cashRetentionLimit">Enter Branch Retention Limit:
+            <span style="color: red; font-size: 18px;">*</span>
+          </label>
+          <div>
+            <input type="number" id="retentionLimit" class="form-control" placeholder="Branch Cash Retention Limit " name="retentionLimit"
+              class="form-control inputfield" [(ngModel)]="branchDemandDetail.retentionLimit"
+              [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required/>
+          </div>
+          <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">
+            <div *ngIf="retentionLimit.errors['required']">Branch Cash Retention Limit is required</div>
             </div>
+          <div class="mt-4"></div> -->
+
+
+
+        <!-- ===========================SELECT CUSTOMER TYPE START========================== -->
+        <div class="form-group">
+          <label for="priorityFlag">Priority : <span
+              style="color: red; font-size: 18px; font-size: 18px">*</span></label>
+          <div class="mt-2"></div>
+          <select class="form-select inputfield" name="priorityFlag" [(ngModel)]="branchDemandDetail.priorityFlag"
+          [ngClass]="{ 'is-invalid': f.submitted && priorityFlag.errors }" #priorityFlag="ngModel" required>
+            <option selected disabled value="">Choose.. </option>
+            <option value="High">High</option>
+            <option value="Medium">Medium</option>
+            <option value="Low">Low</option>
+
+          </select>
+
+          <div *ngIf="f.submitted && priorityFlag.errors " class="text-danger">
+            <div *ngIf="priorityFlag.errors['required']">Priority is required</div>
+            </div>
+
+        </div>
+        <div class="mt-4"></div>
+
+        <!-- ************************************** BRANCH CODE *********************************************************************************** -->
+
+
+        <label for="brJust">Enter Justification:
+            <span style="color: red; font-size: 18px;">*</span>
+          </label>
+          <div>
+            <textarea id="brJust" class="form-control" placeholder="Justification" name="brJust"
+              class="form-control inputfield" [(ngModel)]="branchDemandDetail.justification"
+              [ngClass]="{ 'is-invalid': f.submitted && justification.errors }" #justification="ngModel" required></textarea>
+  
+          </div>
+          <div *ngIf="f.submitted && justification.errors " class="text-danger">
+            <div *ngIf="justification.errors['required']">Justification is required</div>
+            </div>
+          <div class="mt-4"></div>
+  
+        </div>
+
+      
+   </div>
+ </div>
+        </div>
+        <!-- ===========================OTHER INPUT FIELD EXAMPLE END========================== -->
+
+        <!-- ===========================SUBMIT BUTTON========================== -->
+        <div></div>
+        <br>
+        
+        <div class="justify-content-center d-flex">
+          <button type="submit" class="btn btn-hover btn-danger btn-md w-50">Submit</button>
+        </div>
+    
+        <!-- </div> -->
+        
+      </form>
+    </div>
+  </div>
+<!-- </div> -->
+</div>
+<div></div>
+<table>
+    <td>
+        <tr> 
+            HEADER NAME
+        </tr>
+    </td>
+</table>

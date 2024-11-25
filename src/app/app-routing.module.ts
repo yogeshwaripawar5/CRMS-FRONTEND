@@ -5,16 +5,16 @@ import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-up
 
 const routes: Routes = [
 
-  {
-    path: 'branch',
-    component: BranchInputFormComponent,
-    //Lazy loading
-  },
   // {
   //   path: 'branch',
-  //   component: BranchInputFormUpdateComponent,
+  //   component: BranchInputFormComponent,
   //   //Lazy loading
   // },
+  {
+    path: 'branch',
+    component: BranchInputFormUpdateComponent,
+    //Lazy loading
+  },
   // {
   //   path: '',
   //   redirectTo: 'branch',

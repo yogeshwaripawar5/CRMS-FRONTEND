@@ -103,7 +103,7 @@
         </label>
         <div>
           <input type="number" id="cashRetentionLimit" class="form-control" placeholder="Branch Cash Retention Limit " name="cashRetentionLimit"
-            class="form-control inputfield" [(ngModel)]="branchDemandDetail.cashRetentionLimit"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.retentionLimit"
             [ngClass]="{ 'is-invalid': f.submitted && cashRetentionLimit.errors }" #cashRetentionLimit="ngModel" required/>
         </div>
         <div *ngIf="f.submitted && cashRetentionLimit.errors " class="text-danger">

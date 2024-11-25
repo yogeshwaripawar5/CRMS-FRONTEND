@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DemandService } from 'src/app/demand.service';
 import { BranchDemandDetail } from 'src/app/MODEL/branch-demand-detail';
-import { BranchDemandService } from 'src/app/SERVICE/branch-demand.service';
-import { ProductService } from 'src/app/SERVICE/product.service';
+// import { BranchDemandService } from 'src/app/SERVICE/branch-demand.service';
+// import { ProductService } from 'src/app/SERVICE/product.service';
 
 @Component({
   selector: 'app-branch-input-form',
@@ -24,6 +24,10 @@ export class BranchInputFormComponent {
 
   ngOnInit(): void {
     throw new Error('Method not implemented.');
+
+
+ 
+
 
   }
   isSpinnerLoading:boolean = false;
@@ -80,5 +84,8 @@ onSubmit(): void {
   );
 
 }
+
+// ************************************************************************************************************************
+
 
 }

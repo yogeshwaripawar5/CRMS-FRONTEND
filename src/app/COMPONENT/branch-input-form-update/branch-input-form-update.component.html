@@ -1,0 +1,60 @@
+<form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()" novalidate>
+  
+    <div class="card table-common-border">
+     <div class="card-body justify-content-center">
+        <div class="mt-2"></div>
+    <div class="row">
+      <!-- //PART 1 -->
+    <div class="col-md-6">
+
+
+            <!--immovable security details-->
+          <div class="card">
+              <div class="card-body">
+                  <p class="text-danger title">Branch Details</p>
+                  <br/>            
+                  <div class="col-md-12 mt-2" >
+                    
+                    <label for="regionName">Enter Region Name:
+                        <span style="color: red; font-size: 18px;">*</span>
+                      </label>
+            
+                      <div>
+                        <input required  [ngClass]="{ 'is-invalid': f.submitted && region.errors }" type="text" id="regionName" class="form-control" placeholder="Region Name" name="regionName"
+                          class="form-control inputfield" [(ngModel)]="branchDemandDetail.region"
+                           #region="ngModel" />
+                      </div>
+                                   
+                      <div *ngIf="f.submitted && region.errors " class="text-danger">
+                        <div *ngIf="region.errors['required']">Region Name is required</div>
+                      </div>
+
+                   </div>   
+                   
+                   
+                    <div class="col-md-12 mt-2">
+                        
+                        <label for="branchName">Enter Branch Name:
+                            <span style="color: red; font-size: 18px;">*</span>
+                          </label>
+                  
+                          <div>
+                            <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName"
+                              class="form-control inputfield" [(ngModel)]="branchDemandDetail.branchName"
+                              [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }" #branchName="ngModel" required />
+                          </div>
+                  
+                          <div *ngIf="f.submitted && branchName.errors " class="text-danger">
+                            <div *ngIf="branchName.errors['required']">Branch Name is required</div>
+                          </div>
+                          <div class="mt-4"></div>
+                  
+                    </div> 
+
+                    <div class="col-md-12 mt-2">
+                      
+                      </div>
+                  </div> 
+          
+              </div>
+            </div>

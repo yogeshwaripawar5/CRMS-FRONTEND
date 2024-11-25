@@ -9,6 +9,7 @@ import { WatermarkComponent } from './COMPONENT/watermark/watermark.component';
 import { BranchInputFormComponent } from './COMPONENT/branch-input-form/branch-input-form.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-update/branch-input-form-update.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { HttpClientModule } from '@angular/common/http';
     SpinnerComponent,
     HeaderComponent,
     WatermarkComponent,
-    BranchInputFormComponent
+    BranchInputFormComponent,
+    BranchInputFormUpdateComponent
   ],
   imports: [
     BrowserModule,

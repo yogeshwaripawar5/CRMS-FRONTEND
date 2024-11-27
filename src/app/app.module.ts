@@ -10,6 +10,8 @@ import { BranchInputFormComponent } from './COMPONENT/branch-input-form/branch-i
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-update/branch-input-form-update.component';
+import { LoginComponent } from './login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -18,13 +20,15 @@ import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-up
     HeaderComponent,
     WatermarkComponent,
     BranchInputFormComponent,
-    BranchInputFormUpdateComponent
+    BranchInputFormUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
     
   ],
   providers: [],

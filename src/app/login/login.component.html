@@ -1,0 +1,20 @@
+<div>
+    <h1>Credential Check</h1>
+  
+    <label for="mran">MRAN:</label>
+    <input type="number" [(ngModel)]="mran" id="mran" />
+    
+    <label for="ran">RAN:</label>
+    <input type="number" [(ngModel)]="ran" id="ran" />
+  
+    <label for="u">Username (u):</label>
+    <input type="text" [(ngModel)]="u" id="u" />
+  
+    <button (click)="getUserData()">Check Credentials</button>
+  
+    <div *ngIf="responseMessage">
+      <h2>Response:</h2>
+      <p>{{ responseMessage }}</p>
+    </div>
+  </div>
+  

@@ -51,25 +51,13 @@ onSubmit(): void {
     // this.route.navigate(['/gstmsme/doclist']);
   }
 
-  // postData(){
-
-  // }
-
+ 
 
   postData(){
     console.log(" IN BRANCH DEMAND POST COMPONENT")
 
     console.warn("IN BRANCH DEMAND POST COMPONENT")
   console.warn()
-
-
-  // this.branchDemandService.branchDemandPost(this.branchDemandDetail).subscribe(response => {
-  //   // Handle response
-  //   console.log('User signed up successfully', response);
-  //   if(response){
-  //        this.router.navigate(['branch']) //redirect page to branch
-  //   }
-  // });
 
   
 

@@ -2,6 +2,8 @@ export interface BranchDemandDetail {
 
     probableCashOnHand:number,
     retentionLimit:number,
+    retentionLimitPercentage:number,
+
     cashDemand:number,
     justification:string,
     priorityFlag:string,
@@ -13,4 +15,15 @@ export interface BranchDemandDetail {
     demandSubmitBy:string
 }
 
+
+// export interface UserModelData {
+//     u_id: string;
+//     u_type: string;
+//     brcode: string;
+//     roname: string;
+//     u_status: string;
+//     u_loc: string;
+//     u_name: string;
+ 
+//   }
 

@@ -7,7 +7,7 @@ export class IpAddressService {
 
   constructor() { }
   setIpAddress(): void {
-    sessionStorage.setItem('ipAddress', 'localhost:8080');
+    sessionStorage.setItem('ipAddress', 'localhost:8085');
     // sessionStorage.setItem('ipAddress', '10.15.51.23:8080');
   
   }

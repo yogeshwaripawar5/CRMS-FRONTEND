@@ -1,21 +1,43 @@
-<div _ngcontent-ng-c2359972585="" class="d-flex border-bottom border-primary doubleborder"
+<!-- <div _ngcontent-ng-c2359972585="" class="d-flex border-bottom border-primary doubleborder"
     style="width: 100%; align-items: center;"><img _ngcontent-ng-c2359972585="" width="75%" height="90px"
         src="assets/mgb.png" alt="Logo"><span _ngcontent-ng-c2359972585=""
         class="ms-auto d-flex flex-column justify-content-center"
-        style="width: 25%; height: 90px; text-align: right; background-color: white;">
+        style="width: 25%; height: 90px; text-align: right; background-color: white;"> -->
 
 
         <!-- <h4  align="right"> Department: IT</h4>
         <h4   align="right"> Office Code: <%=brCode%> </h4>
         <h4   align="right"> EPF No: <%=PFno%> </h4>  -->
 
-        <div _ngcontent-ng-c2359972585="" class="user-info"><b _ngcontent-ng-c2359972585=""> Welcome ...<label
+        <!-- <div _ngcontent-ng-c2359972585="" class="user-info"><b _ngcontent-ng-c2359972585=""> Welcome ...<label
                     _ngcontent-ng-c2359972585="" style="color: green;"> User </label><br _ngcontent-ng-c2359972585="">
                 Branch: N/A &nbsp;&nbsp; Region: N/A </b></div>
-    </span></div>
+    </span></div> -->
 
 
-<br>
+<!-- 
+    <html class="html"> -->
+<!-- <body class="body"> -->
+<div class="datetime-container">
+  <span class="datetime" style="color:darkred">{{ currentDateTime }}</span>
+</div>
+<div class="header-container">
+<div class="logo-container">
+  <img src="assets/mgb.png"  sizes="128x128" alt="Logo" class="logo">
+</div>
+
+<div class="user-info">
+  <h6 style="color:mediumblue"> Welcome, </h6><h6>{{username}}.</h6>
+  <h6>User ID: {{userId}}</h6>
+  <h6>Branch: {{branchCode}}</h6>
+  <h6>Departmant: {{department}}</h6>
+  </div>
+ 
+</div>
+
+<div class="title-container">
+  <h1 class="title">Currency Request Management Portal</h1>
+</div>
 
 <div class="dropdown">
   <!-- Dropdown Button -->
@@ -58,3 +80,4 @@
         &copy;  Maharashtra Gramin Bank
       </div>
     </footer>
+    <!-- </html> -->

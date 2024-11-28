@@ -28,7 +28,7 @@
           <div>
             <input required  [ngClass]="{ 'is-invalid': f.submitted && region.errors }" type="text" id="regionName" class="form-control" placeholder="Region Name" name="regionName"
               class="form-control inputfield" [(ngModel)]="branchDemandDetail.region"
-               #region="ngModel" />
+               #region="ngModel"  disabled/>
           </div>
 
 
@@ -48,9 +48,9 @@
         </label>
 
         <div>
-          <input type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName"
+          <input [(ngModel)]="branchDemandDetail.branchName" type="text" id="branchName" class="form-control" placeholder="Branch Name" name="branchName"
             class="form-control inputfield" [(ngModel)]="branchDemandDetail.branchName"
-            [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }" #branchName="ngModel" required />
+            [ngClass]="{ 'is-invalid': f.submitted && branchName.errors }" #branchName="ngModel" required disabled/>
         </div>
 
         <div *ngIf="f.submitted && branchName.errors " class="text-danger">
@@ -64,9 +64,9 @@
           <span style="color: red; font-size: 18px;">*</span>
         </label>
         <div>
-          <input type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode"
+          <input [(ngModel)]="branchDemandDetail.brcode" type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode"
             class="form-control inputfield" [(ngModel)]="branchDemandDetail.brcode" 
-            [ngClass]="{ 'is-invalid': f.submitted && brcode.errors }" #brcode="ngModel" required />
+            [ngClass]="{ 'is-invalid': f.submitted && brcode.errors }" #brcode="ngModel" required disabled/>
         </div>
 
         <div *ngIf="f.submitted && brcode.errors " class="text-danger">
@@ -74,27 +74,65 @@
         </div>
         <div class="mt-4"></div>
 
-        <!-- ************************************** BRANCH CASH REQUIREMENT *********************************************************************************** -->
 
-        <label for="branchReq">Enter Branch Cash Requirement:
-          <span style="color: red; font-size: 18px;">*</span>
-        </label>
-        <div>
-          <input type="number" id="branchReq" class="form-control" placeholder="Branch Cash Requirement"
-            name="branchReq" class="form-control inputfield" [(ngModel)]="branchDemandDetail.cashDemand"
-            [ngClass]="{ 'is-invalid': f.submitted && cashDemand.errors }" #cashDemand="ngModel" required/>
+
+
+   <!-- ************************************** BRANCH RETENTION *********************************************************************************** -->
+
+
+            <label for="retentionLimit">Enter Branch Retention Limit:
+              <span style="color: red; font-size: 18px;">*</span>
+            </label>
+            <div>
+              <input  [(ngModel)]="branchDemandDetail.retentionLimit" type="number" id="retentionLimit" class="form-control inputfield" placeholder="Branch Cash Retention Limit " name="retentionLimit"
+                [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required disabled/>
+            </div>
+            <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">
+              <div *ngIf="retentionLimit.errors['required']">Branch Cash Retention Limit is required</div>
+              </div>
+            <div class="mt-4"></div>
+
+
+      <label for="previousDayCashOnHand">Previous Day Cash On Hand:
+        <span style="color: red; font-size: 18px;">*</span>
+      </label>
+      <div>
+        <input [(ngModel)]="branchDemandDetail.previousDayCashOnHand" type="text" id="branchCode" class="form-control" placeholder="Previous Day Cash On Hand" name="previousDayCashOnHand"
+          class="form-control inputfield" 
+          [ngClass]="{ 'is-invalid': f.submitted && previousDayCashOnHand.errors }" #previousDayCashOnHand="ngModel" required disabled/>
+      </div>
+
+      <div *ngIf="f.submitted && previousDayCashOnHand.errors " class="text-danger">
+        <div *ngIf="previousDayCashOnHand.errors['required']">Previous Day Cash on hand is required</div>
+      </div>
+      <div class="mt-4"></div>
+
+    
+      <div *ngIf="showJustificationBlock">
+
+      <label for="brJust">Enter Justification:
+        <span style="color: red; font-size: 18px;">*</span>
+      </label>
+      <div>
+        <textarea id="brJust" class="form-control" placeholder="excessCashHoldJustification" name="brJust"
+          class="form-control inputfield" [(ngModel)]="branchDemandDetail.excessCashHoldJustification"
+          [ngClass]="{ 'is-invalid': f.submitted && excessCashHoldJustification.errors }" #excessCashHoldJustification="ngModel" required></textarea>
+
+      </div>
+      <div *ngIf="f.submitted && excessCashHoldJustification.errors " class="text-danger">
+        <div *ngIf="excessCashHoldJustification.errors['required']">excessCashHoldJustification is required</div>
         </div>
-
-        <div *ngIf="f.submitted && cashDemand.errors " class="text-danger">
-        <div *ngIf="cashDemand.errors['required']">Branch Cash Requirement is required</div>
         </div>
       <div class="mt-4"></div>
 
+
         </div>
           </div>
           </div>
           </div>
-    
+ 
+          
+ <!-- *****************************************************************************************************************************************************        -->
  <!-- ************************************** BRANCH CODE *********************************************************************************** -->
  <div class="col-md-6">
       <!-- comments on title search and CERSAI -->
@@ -114,36 +152,56 @@
           </div>
         <div class="mt-4"></div>
 
-         <!-- ************************************** BRANCH RETENTION *********************************************************************************** -->
 
+          <!-- ************************************** BRANCH CASH REQUIREMENT *********************************************************************************** -->
 
-         <label for="retentionLimit">Enter Branch Retention Limit:
-          <span style="color: red; font-size: 18px;">*</span>
-        </label>
-        <div>
-          <input  [(ngModel)]="branchDemandDetail.retentionLimit" type="number" id="retentionLimit" class="form-control inputfield" placeholder="Branch Cash Retention Limit " name="retentionLimit"
-            [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required/>
-        </div>
-        <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">
-          <div *ngIf="retentionLimit.errors['required']">Branch Cash Retention Limit is required</div>
-          </div>
-        <div class="mt-4"></div>
-
-<!-- 
-        <label for="cashRetentionLimit">Enter Branch Retention Limit:
+          <label for="branchReq">Enter Branch Cash Requirement:
             <span style="color: red; font-size: 18px;">*</span>
           </label>
           <div>
-            <input type="number" id="retentionLimit" class="form-control" placeholder="Branch Cash Retention Limit " name="retentionLimit"
-              class="form-control inputfield" [(ngModel)]="branchDemandDetail.retentionLimit"
-              [ngClass]="{ 'is-invalid': f.submitted && retentionLimit.errors }" #retentionLimit="ngModel" required/>
+            <input type="number" id="branchReq" class="form-control" placeholder="Branch Cash Requirement"
+              name="branchReq" class="form-control inputfield" [(ngModel)]="branchDemandDetail.cashDemand"
+              [ngClass]="{ 'is-invalid': f.submitted && cashDemand.errors }" #cashDemand="ngModel" required/>
           </div>
-          <div *ngIf="f.submitted && retentionLimit.errors " class="text-danger">
-            <div *ngIf="retentionLimit.errors['required']">Branch Cash Retention Limit is required</div>
-            </div>
-          <div class="mt-4"></div> -->
+  
+          <div *ngIf="f.submitted && cashDemand.errors " class="text-danger">
+          <div *ngIf="cashDemand.errors['required']">Branch Cash Requirement is required</div>
+          </div>
+        <div class="mt-4"></div>
+
+   
+<!-- ******************************************************************************************************************************************************************************************* -->
+        <label for="branchCode">Enter Branch code:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input [(ngModel)]="branchDemandDetail.brcode" type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.brcode" 
+            [ngClass]="{ 'is-invalid': f.submitted && brcode.errors }" #brcode="ngModel" required />
+        </div>
+
+        <div *ngIf="f.submitted && brcode.errors " class="text-danger">
+          <div *ngIf="brcode.errors['required']">Branch Code is required</div>
+        </div>
+        <div class="mt-4"></div>
 
 
+        <label for="otherBankAc">Enter Other Bank Accounts:
+          <span style="color: red; font-size: 18px;">*</span>
+        </label>
+        <div>
+          <input [(ngModel)]="branchDemandDetail.otherBankAc" type="text" id="otherBankAc" class="form-control" placeholder="Other Bank Accounts" name="otherBankAc"
+            class="form-control inputfield" [(ngModel)]="branchDemandDetail.otherBankAc" 
+            [ngClass]="{ 'is-invalid': f.submitted && otherBankAc.errors }" #otherBankAc="ngModel" required />
+        </div>
+
+        <div *ngIf="f.submitted && otherBankAc.errors " class="text-danger">
+          <div *ngIf="otherBankAc.errors['required']">Other Bank Account is required</div>
+        </div>
+        <div class="mt-4"></div>
+
+
+       
 
         <!-- ===========================SELECT CUSTOMER TYPE START========================== -->
         <div class="form-group">
@@ -169,17 +227,17 @@
         <!-- ************************************** BRANCH CODE *********************************************************************************** -->
 
 
-        <label for="brJust">Enter Justification:
+        <label for="brJust">Enter Demand Reason:
             <span style="color: red; font-size: 18px;">*</span>
           </label>
           <div>
-            <textarea id="brJust" class="form-control" placeholder="Justification" name="brJust"
-              class="form-control inputfield" [(ngModel)]="branchDemandDetail.justification"
-              [ngClass]="{ 'is-invalid': f.submitted && justification.errors }" #justification="ngModel" required></textarea>
+            <textarea id="brJust" class="form-control" placeholder="demandReason" name="brJust"
+              class="form-control inputfield" [(ngModel)]="branchDemandDetail.demandReason"
+              [ngClass]="{ 'is-invalid': f.submitted && demandReason.errors }" #demandReason="ngModel" required></textarea>
   
           </div>
-          <div *ngIf="f.submitted && justification.errors " class="text-danger">
-            <div *ngIf="justification.errors['required']">Justification is required</div>
+          <div *ngIf="f.submitted && demandReason.errors " class="text-danger">
+            <div *ngIf="demandReason.errors['required']">demandRemark is required</div>
             </div>
           <div class="mt-4"></div>
   

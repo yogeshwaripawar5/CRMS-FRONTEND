@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-update/branch-input-form-update.component';
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RoViewComponent } from './COMPONENT/ro-view/ro-view.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     WatermarkComponent,
     BranchInputFormComponent,
     BranchInputFormUpdateComponent,
-    LoginComponent
+    LoginComponent,
+    RoViewComponent
   ],
   imports: [
     BrowserModule,

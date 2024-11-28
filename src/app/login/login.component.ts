@@ -2,6 +2,7 @@ import { Component, Input } from '@angular/core';
 import { LoginService } from '../login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserDetail,UserLogin } from '../MODEL/user-detail';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,14 +11,15 @@ import { UserDetail,UserLogin } from '../MODEL/user-detail';
 })
 export class LoginComponent {
 
-  constructor(private loginService: LoginService,private router:Router,private activateRoute:ActivatedRoute){}
+  constructor(private loginService: LoginService,private auth:AuthService,
+    private router:Router,private activateRoute:ActivatedRoute){}
 
   @Input()userId:string='';
 
   responseMessage: string = '';
   mran: number = 0;  // Example values
   ran: number =0;
-  u: string = '';
+  u: string = '1896030755';
   
   userModelData = {} as UserDetail;
   userLoginData = {} as UserLogin;
@@ -28,7 +30,7 @@ export class LoginComponent {
       // Extract 'mran', 'ran', and 'u' from the query parameters
       this.mran = params['mran'];
       this.ran = params['ran'];
-      this.u = params['u'];
+      
 
       console.log(this.mran);
       console.log(this.ran);
@@ -100,8 +102,15 @@ export class LoginComponent {
         console.log(" Deviation Compliance Data :")
         console.log('response .. '+response);
         this.userModelData=response;
+        console.log(this.userModelData);
     
-       
+        sessionStorage.setItem('userId', this.userModelData.u_id);
+        this.userModelData = response;
+        sessionStorage.setItem(
+          'UserModelData',
+          JSON.stringify(this.userModelData));
+        // console.log(JSON.stringify(this.userModel));
+         this.auth.redirectAfterLogin();
     
       });
     

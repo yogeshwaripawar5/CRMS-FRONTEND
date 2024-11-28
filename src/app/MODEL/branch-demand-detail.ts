@@ -1,11 +1,15 @@
 export interface BranchDemandDetail {
 
     probableCashOnHand:number,
+    previousDayCashOnHand:number,
+    soiledCurrencyAmount:number,
+    otherBankAc:string,
+    excessCashHoldJustification:string,
     retentionLimit:number,
     retentionLimitPercentage:number,
 
     cashDemand:number,
-    justification:string,
+    demandReason:string,
     priorityFlag:string,
     brcode:string,
     branchName:string,

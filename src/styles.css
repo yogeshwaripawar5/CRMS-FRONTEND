@@ -1,6 +1,8 @@
 /* You can add global styles to this file, and also import other style files */
 /* @import '~material-icons/iconfont/material-icons.css'; */
 @import "~@fortawesome/fontawesome-free/css/all.css";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
 
 
 html, body {
@@ -74,6 +76,13 @@ label {
     border-radius: 4px;  /* Optional: set border radius */
 }
 
+.table.table-common-border {
+    border: 2px solid brown;
+    box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
+    background: transparent;
+    border-radius: 4px;  /* Optional: set border radius */
+}
+
 .table-common-border tr, th, td {
     border-color: black;
     background: transparent;
@@ -99,6 +108,7 @@ label {
 .table thead {
 
     background-color: rgb(134, 73, 73);
+    width: 50px;
     color: white;
 }
 
@@ -254,3 +264,24 @@ transition: transform 0.3s ease;
   }
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* @font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Regular.woff2') format('woff2'),
+         url('assets/fonts/Roboto-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  @font-face {
+    font-family: 'Roboto';
+    src: url('assets/fonts/Roboto-Bold.woff2') format('woff2'),
+         url('assets/fonts/Roboto-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+  } */

@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from 'src/app/auth.service';
 import { UserDetail } from 'src/app/MODEL/user-detail';
 
 @Component({
@@ -7,13 +9,16 @@ import { UserDetail } from 'src/app/MODEL/user-detail';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent {
+
+  @Output() closeSidenav = new EventEmitter<void>();
+
   title = 'CRMS';
   // username: string = 'Prabhali Pawar';  // A string variable
   // userId: String = '189602100';        // A number variable
   // branchCode: String = '4000';        // A number variable
 
   // department: string = 'Information Technology';      // A string variable for department
-
+  
 
   username: string = '';  // A string variable
   userId: String = '';        // A number variable
@@ -26,17 +31,20 @@ export class HeaderComponent {
   currentDateTime: string = '';
 
   ngOnInit() {
-    this.updateDateTime();  // Initial call to set the datetime
-    setInterval(() => this.updateDateTime(), 60000);  // Update every minute
+    // this.updateDateTime();  // Initial call to set the datetime
+    // setInterval(() => this.updateDateTime(), 60000);  // Update every minute
 
-    const abc = sessionStorage.getItem("userModelData");
-    console.log("GET SESSION :"+abc)
+    const abc = sessionStorage.getItem('UserModelData');
     this.userModelData = JSON.parse(abc!);
-  
-    console.log("GET SESSION usermodel :"+this.userModelData)
-    this.userId=this.userModelData.u_id;
-    this.branchCode=this.userModelData.brcode;
-    this.username=this.userModelData.u_name;
+    const currentdate = new Date();
+    // this.currentyr = currentdate.getFullYear();
+
+    console.log(this.userModelData+'this.userModelData');
+
+    // console.log('HEADER INITIALISED 8888888')
+    this.headerData();
+
+ 
   }
 
   updateDateTime() {
@@ -57,8 +65,50 @@ const formattedDate = now.toLocaleDateString('en-US', {
 // Combine the day, formatted date, and time
 this.currentDateTime = `${day} | ${formattedDate} | ${time}`;  }
 
-  constructor() {
+  constructor( private router:Router,private activateRoute:ActivatedRoute,private authService:AuthService) {
     // You can also assign variables in the constructor
     console.log('Component initialized');
+
+}
+
+headerData(){
+
+  const abc = sessionStorage.getItem("UserModelData");
+  console.log("GET SESSION :"+abc)
+  this.userModelData = JSON.parse(abc!);
+
+  console.log("GET SESSION usermodel :"+this.userModelData)
+  this.userId=this.userModelData.u_id;
+  this.branchCode=this.userModelData.brcode;
+  this.username=this.userModelData.u_name;
+
+  this.navigatePages(this.userModelData);
+}
+
+navigatePages(userModelData:UserDetail){
+  console.log('IN REDIRECT PAGE');
+
+  if(userModelData.u_loc=='BR' && userModelData.u_type=='OF'){
+
+      this.router.navigateByUrl('/branch');
+
+  }else if (userModelData.u_loc=='RO' ){
+    this.router.navigateByUrl('/roView');
+
+  }else if (userModelData.u_loc=='HO' ){
+    console.log('IN HO VIEW');
+    this.router.navigateByUrl('/hoView');
+
+  }
+
+  
+}
+
+onClose() {
+  this.closeSidenav.emit();
+}
+logout() {
+  this.authService.logout();
+  sessionStorage.clear();
 }
 }

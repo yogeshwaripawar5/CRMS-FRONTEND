@@ -1,3 +1,5 @@
+<app-header></app-header>
+
 <app-spinner *ngIf="isSpinnerLoading"></app-spinner>
 <div class="mt-5"></div>
 <div class="main-heading">BRANCH INPUT FORM</div>
@@ -20,6 +22,10 @@
                 <div class="card-body">
 
         <div class="form-group">
+
+
+
+
 
           <label for="regionName">Enter Region Name:
             <span style="color: red; font-size: 18px;">*</span>
@@ -74,7 +80,48 @@
         </div>
         <div class="mt-4"></div>
 
+<!-- ***************************************** BLOCK NAME ********************************************************************************************** -->
+<label for="blockName">Enter Block Name:
+  <span style="color: red; font-size: 18px;">*</span>
+</label>
 
+<div>
+  <input required  [ngClass]="{ 'is-invalid': f.submitted && blockName.errors }" type="text" id="blockName" class="form-control" placeholder="Block Name" name="blockName"
+    class="form-control inputfield" [(ngModel)]="branchDemandDetail.blockName"
+     #blockName="ngModel"  disabled/>
+</div>
+
+
+
+
+<div *ngIf="f.submitted && blockName.errors " class="text-danger">
+  <div *ngIf="blockName.errors['required']">Block Name is required</div>
+</div>
+
+<!-- ************************************************************************************************************* -->
+<div class="mt-4"></div>
+
+
+<label for="otherBankAc">Enter Other Bank Accounts:
+  <span style="color: red; font-size: 18px;">*</span>
+</label>
+
+<div>
+
+
+  <input 
+    [(ngModel)]="branchDemandDetail.otherBankAc"  
+    type="text"
+    id="otherBankAc"
+    class="form-control"
+    placeholder="Other Bank Accounts"
+    name="otherBankAc"
+    [ngClass]="{ 'is-invalid': f.submitted && otherBankAc.errors }"
+    #otherBankAc="ngModel" disabled
+     />
+</div>
+
+<div class="mt-4"></div>
 
 
    <!-- ************************************** BRANCH RETENTION *********************************************************************************** -->
@@ -93,6 +140,23 @@
             <div class="mt-4"></div>
 
 
+      
+
+        </div>
+          </div>
+          </div>
+          </div>
+ 
+          
+ <!-- *****************************************************************************************************************************************************        -->
+ <!-- ************************************** BRANCH CODE *********************************************************************************** -->
+ <div class="col-md-6">
+      <!-- comments on title search and CERSAI -->
+   <div class="card">
+    <div class="card-body">
+
+
+      <!-- *********************************************************************************************************************************** -->
       <label for="previousDayCashOnHand">Previous Day Cash On Hand:
         <span style="color: red; font-size: 18px;">*</span>
       </label>
@@ -126,18 +190,25 @@
       <div class="mt-4"></div>
 
 
-        </div>
-          </div>
-          </div>
-          </div>
- 
-          
- <!-- *****************************************************************************************************************************************************        -->
- <!-- ************************************** BRANCH CODE *********************************************************************************** -->
- <div class="col-md-6">
-      <!-- comments on title search and CERSAI -->
-   <div class="card">
-    <div class="card-body">
+<!-- ******************************************************************************************************************************************************************************************* -->
+<label for="soiledCurrencyAmount">Enter Soiled Currency Amount:
+  <span style="color: red; font-size: 18px;">*</span>
+</label>
+<div>
+  <input [(ngModel)]="branchDemandDetail.soiledCurrencyAmount" type="text" id="soiledCurrencyAmount" class="form-control" placeholder="Soiled Currency Amount" name="soiledCurrencyAmount"
+    class="form-control inputfield" [(ngModel)]="branchDemandDetail.soiledCurrencyAmount" 
+    [ngClass]="{ 'is-invalid': f.submitted && soiledCurrencyAmount.errors }" #soiledCurrencyAmount="ngModel" required  disabled/>
+</div>
+
+<div *ngIf="f.submitted && soiledCurrencyAmount.errors " class="text-danger">
+  <div *ngIf="soiledCurrencyAmount.errors['required']">Soiled Currency Amount required</div>
+</div>
+<div class="mt-4"></div>
+
+
+<!-- ******************************************************************************************************************************************************************************************* -->
+
+
 
         <label for="brClosBal">Enter Branch Closing balance:
           <span style="color: red; font-size: 18px;">*</span>
@@ -170,41 +241,13 @@
         <div class="mt-4"></div>
 
    
-<!-- ******************************************************************************************************************************************************************************************* -->
-        <label for="branchCode">Enter Branch code:
-          <span style="color: red; font-size: 18px;">*</span>
-        </label>
-        <div>
-          <input [(ngModel)]="branchDemandDetail.brcode" type="text" id="branchCode" class="form-control" placeholder="Branch Code" name="branchCode"
-            class="form-control inputfield" [(ngModel)]="branchDemandDetail.brcode" 
-            [ngClass]="{ 'is-invalid': f.submitted && brcode.errors }" #brcode="ngModel" required />
-        </div>
-
-        <div *ngIf="f.submitted && brcode.errors " class="text-danger">
-          <div *ngIf="brcode.errors['required']">Branch Code is required</div>
-        </div>
-        <div class="mt-4"></div>
 
 
-        <label for="otherBankAc">Enter Other Bank Accounts:
-          <span style="color: red; font-size: 18px;">*</span>
-        </label>
-        <div>
-          <input [(ngModel)]="branchDemandDetail.otherBankAc" type="text" id="otherBankAc" class="form-control" placeholder="Other Bank Accounts" name="otherBankAc"
-            class="form-control inputfield" [(ngModel)]="branchDemandDetail.otherBankAc" 
-            [ngClass]="{ 'is-invalid': f.submitted && otherBankAc.errors }" #otherBankAc="ngModel" required />
-        </div>
-
-        <div *ngIf="f.submitted && otherBankAc.errors " class="text-danger">
-          <div *ngIf="otherBankAc.errors['required']">Other Bank Account is required</div>
-        </div>
-        <div class="mt-4"></div>
 
 
-       
-
+ 
         <!-- ===========================SELECT CUSTOMER TYPE START========================== -->
-        <div class="form-group">
+        <!-- <div class="form-group">
           <label for="priorityFlag">Priority : <span
               style="color: red; font-size: 18px; font-size: 18px">*</span></label>
           <div class="mt-2"></div>
@@ -222,22 +265,22 @@
             </div>
 
         </div>
-        <div class="mt-4"></div>
+        <div class="mt-4"></div> -->
 
         <!-- ************************************** BRANCH CODE *********************************************************************************** -->
 
 
-        <label for="brJust">Enter Demand Reason:
+        <label for="brJust">Enter Cash Requirement Reason:
             <span style="color: red; font-size: 18px;">*</span>
           </label>
           <div>
-            <textarea id="brJust" class="form-control" placeholder="demandReason" name="brJust"
+            <textarea id="brJust" class="form-control" placeholder="Cash Requirement Reason" name="brJust"
               class="form-control inputfield" [(ngModel)]="branchDemandDetail.demandReason"
               [ngClass]="{ 'is-invalid': f.submitted && demandReason.errors }" #demandReason="ngModel" required></textarea>
   
           </div>
           <div *ngIf="f.submitted && demandReason.errors " class="text-danger">
-            <div *ngIf="demandReason.errors['required']">demandRemark is required</div>
+            <div *ngIf="demandReason.errors['required']">Cash Requirement reason is required</div>
             </div>
           <div class="mt-4"></div>
   
@@ -252,10 +295,19 @@
         <!-- ===========================SUBMIT BUTTON========================== -->
         <div></div>
         <br>
-        
+        <div *ngIf="!branchDemandDetail">
+ 
         <div class="justify-content-center d-flex">
-          <button type="submit" class="btn btn-hover btn-danger btn-md w-50">Submit</button>
+          <button type="submit" class="btn btn-hover btn-primary btn-md w-50">Submit</button>
         </div>
+        </div>
+
+        <div *ngIf="branchDemandDetail">
+ 
+          <div class="justify-content-center d-flex">
+            <button type="submit" class="btn btn-hover btn-primary btn-md w-50">Submit</button>
+          </div>
+          </div>
     
         <!-- </div> -->
         

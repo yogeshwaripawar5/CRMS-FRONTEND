@@ -13,6 +13,7 @@ export interface BranchDemandDetail {
     priorityFlag:string,
     brcode:string,
     branchName:string,
+    blockName:String,
     region:string,
     demandStatus:string,
     demandStatusFlag:string,

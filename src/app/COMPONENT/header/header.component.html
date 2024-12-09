@@ -30,7 +30,7 @@
   <h6 style="color:mediumblue"> Welcome, </h6><h6>{{username}}.</h6>
   <h6>User ID: {{userId}}</h6>
   <h6>Branch: {{branchCode}}</h6>
-  <h6>Departmant: {{department}}</h6>
+  <!-- <h6>Departmant: {{department}}</h6> -->
   </div>
  
 </div>
@@ -38,7 +38,7 @@
 <div class="title-container">
   <h1 class="title">Currency Request Management Portal</h1>
 </div>
-
+&nbsp;
 <div class="dropdown">
   <!-- Dropdown Button -->
   <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: 150px; align-items: center;">
@@ -50,8 +50,24 @@
     <li><a class="dropdown-item" href="http://10.15.51.250/MGB_WEB_ULC/After_login_page.aspx">MSSO Home</a></li>
    
   </ul>
-</div>
+</div> 
+&nbsp;&nbsp;
 
+
+
+<button [routerLink]="'/login'"  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 150px; align-items: center;">Logout</button>
+
+<!-- <button
+class="btn btn-success"
+style="margin: 10px; max-width: 25%; min-width: 25%;"
+(click)="downloadReport()"
+>
+
+<span>
+  Logout
+</span>
+
+</button> -->
 <!-- ******************************************************************************************************************* -->
 
 
@@ -81,3 +97,4 @@
       </div>
     </footer>
     <!-- </html> -->
+    <router-outlet></router-outlet>

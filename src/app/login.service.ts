@@ -12,7 +12,8 @@ export class LoginService {
 
   private baseUrl = 'http://'+ this.ipService.getIPAddress()+'/api/user';
 
-
+  private getUserApiFromMSSO =
+  'http://10.15.51.23:8099/v1/api/login/get-user'; // first userId ,password  // msso password
   private getDefaultUser =
   'http://10.15.51.23:8099/v1/api/login/get-default-user'; // first userId ,password  // msso password
 
@@ -24,9 +25,24 @@ export class LoginService {
      return this.http.get<any>(`${this.getDefaultUser}` ,{params});
   }
 
+  getUserDataFromMSSO(userId: string, pwd: string): Observable<any> {
+   
+    // const params=new HttpParams()
+    // .set('uid',userId)
+    // .set('pwd',password);
+    // return this.http.get<any>(
+    //   this.getUserApiFromMSSO,{params}
+    // );
+    const body = { userId, pwd };
+    return this.http.post<any>(
+      this.getUserApiFromMSSO, body);
+
+  }
+
 
   getUserData(mran: number, ran: number, u: string):Observable<string>{
-    console.log("GET RETENTION LIMIT SERVICE ");
+
+    console.log("GET USER DATA  SERVICE ");
   
     console.log('BASIC URL '+'http://localhost:8080/api/user/checkCredential?u=%27Maya%27?mran=5?ran=2');
 

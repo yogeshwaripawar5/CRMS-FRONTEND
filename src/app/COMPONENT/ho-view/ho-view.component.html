@@ -1,0 +1,137 @@
+
+<app-header></app-header>
+
+
+<div class="dropdown"></div>
+
+
+  <!-- <button
+    class="btn btn-success"
+  style="margin: 10px; max-width: 25%; min-width: 25%;"
+  (click)="downloadReport()"
+>
+  
+    <span>
+      Download Console Report
+    </span>
+ 
+</button> -->
+&nbsp;&nbsp;
+<button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;" (click)="downloadReport()">Download Console Report</button>
+<div class="container" style=>
+
+
+<!-- <button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;" (click)="downloadReport()">Download Console Report</button> -->
+
+<!-- <div class="parent-container">  -->
+   <!-- <div class="flex-item">Total Retention Limit </div> -->
+  <!-- <div class="grid-item" style=" align-items: flex-end;" >
+    <span class="label">Total Retention Limit: </span>
+    <span class="value" id="retentionValue">{{bankSummary.previousDayCashOnHandSum}}</span>
+  </div>
+  <div class="flex-item">Previous Day Cash On Hand</div>
+  <div class="flex-item">As on </div></div> -->
+<!-- </div> -->
+
+
+<table style="position: relative;">
+  <th> As On</th>
+
+  <th>
+    
+      Total Retention Limit
+     </th>
+     <th> Previous Day Cash On Hand</th>
+
+     <tbody>
+      <tr *ngFor="let b of bankSummary;">
+        <td>{{b.submitDate}}</td>
+
+        <td>{{b.retentionLimitSum}}</td>
+      <td> {{b.previousDayCashOnHandSum}}</td>
+       
+      </tr>
+     </tbody>
+   
+
+</table>
+
+
+<!-- <div class="parent-container">  -->
+   <!-- <div class="flex-item">Total Retention Limit </div> -->
+  <!-- <div class="grid-item">
+    <span class="label">Total Retention Limit: </span>
+    <span class="value" id="retentionValue">15</span>
+  </div>
+  <div class="flex-item">Previous Day Cash On Hand</div>
+  <div class="flex-item">Item 3</div></div> -->
+
+  <!-- <div class="parent-container">
+    <div class="flex-container">
+      <div class="flex-item">Total Retention Limit: <span class="value" id="retentionValue">15</span></div>
+      <div class="flex-item">Other item</div>
+    </div>
+  </div> -->
+
+
+<!-- <button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;">Total Retention Limit <span> {{this.cashRetentionLimit}}</span></button>
+<button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;">Previous Day Cash On Hand</button> -->
+
+
+<!-- <img id="ctl00_head_Image3" src="image/rupees.png" style="height:22px;border-width:0px;float:left;">
+<span id="ctl00_head_Label1" style="float:left; margin-left:10px;">Total Retention Limit</span>
+<span id="ctl00_head_Label2" style="font-weight:bold;float:left;margin-left:10px;">{{bankSummary.retentionLimitSum}}</span>
+style="text-align:center; "
+<img id="ctl00_head_Image3" src="image/rupees.png" style="height:22px;border-width:0px;float:left;">
+<span id="ctl00_head_Label1" style="float:left; margin-left:10px;">Previous Day Cash On Hand</span>
+<span id="ctl00_head_Label2" style="font-weight:bold;float:left;margin-left:10px;">{{bankSummary.previousDayCashOnHandSum}}</span> -->
+
+<div></div><br>
+<div class="main-heading">REGION WISE CASH SUMMARY</div>
+<div class="mt-4"></div>
+
+    <!-- <div class="card "> -->
+        <!-- <div class="card-body"> -->
+
+            
+    
+    <div class="container">
+  
+
+      <h2 *ngIf="regionWiseSummary.length === 0" class="text-danger text-center">
+        No Data Available.
+      </h2>
+      <div class="card-body">
+      <div *ngIf="regionWiseSummary.length > 0">
+      <table class=" table table-hover table-responsive table-common-border text-center  table-bordered " >
+        <!-- <div class="card table-common-border container-fluid pb-2 custom-styles" style="width: 80%; "> -->
+
+        <thead class="theadclass">
+            <th 
+              class="header"
+              *ngFor="let header of region_summary_header" >
+              {{ header }} 
+            </th>
+        </thead>
+        <tbody> 
+            <tr *ngFor="let regionList of regionWiseSummary; let h=index">
+                  <td>{{ regionList.region}}</td>
+                  <td>{{ regionList.retentionLimitSum }}</td>
+                  <td>{{ regionList.previousDayCashOnHandSum }}</td>
+                  <td>{{ regionList.submitDate }}</td>
+                
+            </tr>
+        </tbody>
+        </table>
+        
+
+        </div>
+      
+        </div> 
+    </div> 
+
+   
+
+
+<!-- </div> -->
+    <!-- </div> -->

@@ -13,6 +13,10 @@ import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-up
 import { LoginComponent } from './login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RoViewComponent } from './COMPONENT/ro-view/ro-view.component';
+import { BranchSavedComponent } from './COMPONENT/branch-saved/branch-saved.component';
+import { HoViewComponent } from './COMPONENT/ho-view/ho-view.component';
+import { PagenotfoundComponent } from './COMPONENT/pagenotfound/pagenotfound.component';
+// import { HoViewComponent } from './ho-view/ho-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,10 @@ import { RoViewComponent } from './COMPONENT/ro-view/ro-view.component';
     BranchInputFormComponent,
     BranchInputFormUpdateComponent,
     LoginComponent,
-    RoViewComponent
+    RoViewComponent,
+    BranchSavedComponent,
+    HoViewComponent,
+    PagenotfoundComponent
   ],
   imports: [
     BrowserModule,

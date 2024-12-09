@@ -21,4 +21,15 @@ export class RoViewService {
     return this.http.get<any>(`${this.baseUrl}/get/${region}`);
    }
 
+// *********************************************************************************************************************
+   getIndividualRoSummary(region:string):Observable<any>{
+
+    console.log("GET INDIVIDUAL RO SUMMARY  SERVICE ");
+  
+    console.log('BASIC URL '+this.baseUrl+'/get/individual-ro-summary/'+region);
+
+    return this.http.get<any>(`${this.baseUrl}/get/individual-ro-summary/${region}`);
+   }
+
+
 }

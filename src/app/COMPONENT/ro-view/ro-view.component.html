@@ -1,16 +1,12 @@
-<!-- <div class="mt-5"></div> -->
+<app-header></app-header>
 
 <div class="dropdown"></div>
-  <!-- Dropdown Button -->
-  <!-- <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false" style="width: 150px; align-items: center;">
-    Download
-  </button> -->
 
 
   <button
     class="btn btn-success"
   style="margin: 10px; max-width: 25%; min-width: 25%;"
-  (click)="downloadReport(userModelData.roname)"
+  (click)="downloadReport(region)"
 >
   
     <span>
@@ -24,8 +20,8 @@
 <div class="main-heading">BRANCH CASH REQUIREMENT</div>
 <div class="mt-4"></div>
 
-    <div class="card ">
-        <div class="card-body">
+    <!-- <div class="card "> -->
+        <!-- <div class="card-body"> -->
 
             
     
@@ -52,49 +48,30 @@
                   <td>{{h+1}}</td>
                   <td>{{ branchList.brcode}}</td>
                   <td>{{ branchList.branchName }}</td>
-                  <!-- <td>{{ branchList.bankerName }}</td> -->
-                  <!-- <td>{{ branchList.sanctionDate }}</td> -->
-                  <td class="text-end">{{ branchList.cashDemand }} /-</td>
+                  <td>{{ branchList.blockName }}</td>
                   <td class="text-end">{{ branchList.retentionLimit }} /-</td>
-                  <td class="text-end">{{ branchList.retentionLimitPercentage }}%-</td>
-                  <!-- <td>{{ branchList.demandStatus }}</td> -->
+
+                  <td class="text-end">{{ branchList.previousDayCashOnHand || 'NA'}} /- </td>
+                  <td class="text-end">
+                   {{ branchList.soiledCurrencyAmount || 'NA' }}
+                    <span *ngIf="branchList.soiledCurrencyAmount">{{ '/ -' }}</span>
+                  </td>
+
+                  <td class="text-end">
+                    {{ branchList.cashDemand || 'NA' }}
+                     <span *ngIf="branchList.cashDemand">{{ '/ -' }}</span>
+                   </td>
+                                  <td class="text-end">{{ branchList.cashDemand }} /-</td>
+                  <!-- <td class="text-end">{{ branchList.probableCashOnHand }}%-</td> -->
+             
                   <!-- <td class="text-center">
-                    <button  mat-mini-fab color="primary" class="btn-hover" (click)="updateStatus(guarantor)" title="Edit Guarantor"><i class="fa-solid fa-pen-to-square fa-lg"></i></button> &nbsp;&nbsp;
-                    <button mat-mini-fab color="warn" class="btn-hover" (click)="confirmDeleteIndGuarantor(guarantor.id,guarantor.guarantorName ,guarantor.pan)"  title="Delete Guarantor"><i class="fa-solid fa-trash-can"></i></button>
-                  </td> -->
-
-
-                  <td class="text-center">
                     <button  mat-mini-fab color="primary" class="btn-hover" title="Edit Guarantor"><i class="fa-solid fa-pen fa-lg"></i></button> &nbsp;&nbsp;
                     <button mat-mini-fab color="warn" class="btn-hover"   title="Delete Guarantor"><i class="fa-solid fa-trash-can"></i></button>
-                  </td>
-                  <!-- <td>{{ branchList.assetClassification }}</td> -->
+                  </td> -->
             </tr>
         </tbody>
         </table>
-        <!-- <div class="mt-5 d-flex justify-content-center">
-            <button  matStepperPrevious  class="btn btn-hover btn-w btn-secondary"> Back </button>&nbsp;&nbsp;&nbsp;
-            <button matStepperNext class="btn btn-hover  btn-w btn-primary">  Next </button>
-          </div> -->
-
-          <div class="mt-5 d-flex justify-content-center">
-            <button  matStepperPrevious  class="btn btn-hover btn-w btn-secondary"> Make Plan </button>&nbsp;&nbsp;&nbsp;
-            <button  mat-mini-fab color="primary" class="btn-hover" title="make plan"><i class="fa-solid fa-pen fa-lg"></i></button> &nbsp;&nbsp;
-
-          </div>
-
-
-          <div class="action-buttons">
-            <!-- Accept Button -->
-            <button mat-raised-button color="primary" class="accept-btn" title="Accept Request">
-              Accept
-            </button>
-          
-            <!-- Reject Button -->
-            <button mat-raised-button color="warn" class="reject-btn" title="Reject Request">
-              Reject
-            </button>
-          </div>
+        
 
         </div>
       
@@ -104,7 +81,7 @@
    
 
 
-</div>
-    </div>
+<!-- </div> -->
+    <!-- </div> -->
     <br>
 

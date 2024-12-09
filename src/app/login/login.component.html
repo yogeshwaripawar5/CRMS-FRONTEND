@@ -1,4 +1,4 @@
-<div>
+<!-- <div>
     <h1>Credential Check</h1>
   
     <label for="mran">MRAN:</label>
@@ -10,11 +10,130 @@
     <label for="u">Username (u):</label>
     <input type="text" [(ngModel)]="u" id="u" />
   
-    <button (click)="getUserData()">Check Credentials</button>
+    <button (click)="getUserData1()">Check Credentials</button>
   
     <div *ngIf="responseMessage">
       <h2>Response:</h2>
       <p>{{ responseMessage }}</p>
     </div>
   </div>
-  
+   -->
+
+   <!-- card.component.html -->
+<app-watermark></app-watermark>
+
+
+<!-- <app-spinner *ngIf="isSpinnerLoading"></app-spinner> -->
+<!-- <div class="container align-items"> -->
+      <!-- <div class="card-title main-heading mt-5">Welcome To CMS </div> -->
+      <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+        <div class="card text-center" style="width: 38%; padding: 20px;">
+            <!-- <div class="card-title main-heading">Welcome To CMS</div> -->
+    
+    <div class="card-body align-items-center">
+      <h1 class="card-title text-danger fw-bolder"> Cash Management System</h1>
+      <div class="row">
+        <div class="col-md-12">
+          <img
+            src=".././../assets/backgroundlogo.png"
+            style="width: 100px; height: 100px"
+            alt="imagenotloaded"
+          />
+
+          <div class="container mt-10">
+            <div class="row justify-content-around">
+              <div class="col-md-12">
+                <form #loginForm="ngForm">
+                  <div class="mb-3 row align-items-center">
+                    <label
+                      for="username"
+                      class="form-label col-sm-3 col-form-label"
+                      >Username</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="username"
+                      name="username"
+                      [(ngModel)]="loginData.username"
+                      required
+                      minlength="8"
+                      le
+                    />
+                    <div
+                      *ngIf="
+                        loginForm.controls['username']?.invalid &&
+                        (loginForm.controls['username'].dirty ||
+                          loginForm.controls['username'].touched)
+                      "
+                      class="text-danger"
+                    >
+                      <div
+                        *ngIf="loginForm.controls['username']['errors']?.['required']"
+                      >
+                        Username is required.
+                      </div>
+                      <div
+                        *ngIf="loginForm.controls['username']['errors']?.['minlength']"
+                      >
+                        Username should be at least 3 characters long.
+                      </div>
+                    </div>
+                  </div>
+                  <div class="mb-3 row align-items-center">
+                    <label
+                      for="password"
+                      class="form-label form-label col-sm-3 col-form-label"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      class="form-control"
+                      id="password"
+                      name="password"
+                      [(ngModel)]="loginData.password"
+                      required
+                    />
+                    <div
+                      *ngIf="
+                        loginForm.controls['password']?.invalid &&
+                        (loginForm.controls['password'].dirty ||
+                          loginForm.controls['password'].touched)
+                      "
+                      class="text-danger"
+                    >
+                      <div
+                        *ngIf="loginForm.controls['password']['errors']?.['required']"
+                      >
+                        Password is required.
+                      </div>
+                      <!-- <div
+                        *ngIf="loginForm.controls['password']['errors']?.['minlength']"
+                      >
+                        Password should be at least 6 characters long.
+                      </div> -->
+                    </div>
+                  </div>
+                  <button
+                    type="submit"
+                    class="btn btn-primary"
+                    [disabled]="loginForm.invalid"
+                    (click)="onValidate()"
+                  >
+                    Login
+                  </button>
+                  <div class="error-message" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+          <!-- login.component.html -->
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="mt-2"></div>
+</div>
+<!-- </div> -->

@@ -1,0 +1,15 @@
+.parent-container {
+    display: grid;
+    /* grid-template-columns: 1fr auto; */
+    /* height: 20px; */
+    width: 300px;
+    align-self: self-end;
+  }
+
+  .grid-item {
+    background-color: rgb(179, 207, 235);
+    /* padding: 20px; */
+    text-align: center;
+    inline-size: left;
+    border: 1px solid #ddd;
+  }

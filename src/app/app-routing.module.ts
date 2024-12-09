@@ -5,6 +5,9 @@ import { BranchInputFormUpdateComponent } from './COMPONENT/branch-input-form-up
 import { LoginComponent } from './login/login.component';
 import { RoViewComponent } from './COMPONENT/ro-view/ro-view.component';
 import { HeaderComponent } from './COMPONENT/header/header.component';
+import { BranchSavedComponent } from './COMPONENT/branch-saved/branch-saved.component';
+import { HoViewComponent } from './COMPONENT/ho-view/ho-view.component';
+import { PagenotfoundComponent } from './COMPONENT/pagenotfound/pagenotfound.component';
 
 const routes: Routes = [
 
@@ -12,6 +15,11 @@ const routes: Routes = [
     path: 'roView',
     component: RoViewComponent,
     //Lazy loading
+  },
+  {
+    path: 'hoView',
+    component: HoViewComponent,
+    //   canActivate: [AuthGuard],
   },
   {
     path: 'branch',
@@ -38,6 +46,40 @@ const routes: Routes = [
     redirectTo: 'login',
     pathMatch: 'full',
   },
+
+  // {
+  //   path: 'header',
+  //   component: HeaderComponent,
+  //   // canActivate: [AuthGuard],
+  //   children: [
+  //     {
+  //       path: 'branch',
+  //       component: BranchInputFormUpdateComponent,
+  //       ////     canActivate: [AuthGuard],
+  //     },
+  //     {
+  //       path: 'roView',
+  //       component: RoViewComponent,
+  //       //   canActivate: [AuthGuard],
+  //     },
+  //     {
+  //       path: 'hoView',
+  //       component: HoViewComponent,
+  //       //   canActivate: [AuthGuard],
+  //     },
+  //     {
+  //       path: 'save',
+  //       component: BranchSavedComponent,
+  //       //   canActivate: [AuthGuard],
+  //     },
+  //     {
+  //       path: '**',
+  //       component: PagenotfoundComponent,
+  //       //     canActivate: [AuthGuard],
+  //     },
+
+  //   ],
+  // },
 ];
 
 @NgModule({

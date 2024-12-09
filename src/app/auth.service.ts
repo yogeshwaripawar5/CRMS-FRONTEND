@@ -120,6 +120,7 @@ export class AuthService {
   getUserData(): any {
     // Retrieve user session data from localStorage
     const storedData = localStorage.getItem('userId');
+
     return storedData ? JSON.parse(storedData) : null;
   }
 
@@ -147,10 +148,14 @@ export class AuthService {
   redirectAfterLogin(): void {
 
     console.log('IN REDIRECT PAGE');
+  const abc = sessionStorage.getItem("UserModelData");
+  console.log("GET SESSION :"+abc)
     const redirectInfo = this.getRedirectInfo();
     // if(this.userModel.)
-    const redirectTo = redirectInfo ? redirectInfo.url : '/branch';
+    const redirectTo = redirectInfo ? redirectInfo.url : '/header';
     this.clearRedirectInfo();
     this.route.navigateByUrl(redirectTo);
   }
+
+
 }

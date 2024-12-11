@@ -16,6 +16,7 @@ import { RoViewComponent } from './COMPONENT/ro-view/ro-view.component';
 import { BranchSavedComponent } from './COMPONENT/branch-saved/branch-saved.component';
 import { HoViewComponent } from './COMPONENT/ho-view/ho-view.component';
 import { PagenotfoundComponent } from './COMPONENT/pagenotfound/pagenotfound.component';
+import { ArrayToStringPipe } from './array-to-string.pipe';
 // import { HoViewComponent } from './ho-view/ho-view.component';
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PagenotfoundComponent } from './COMPONENT/pagenotfound/pagenotfound.com
     RoViewComponent,
     BranchSavedComponent,
     HoViewComponent,
+    ArrayToStringPipe ,
     PagenotfoundComponent
   ],
   imports: [

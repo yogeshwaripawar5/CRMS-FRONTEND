@@ -91,7 +91,8 @@ const contentDisposition = response.headers.get('Content-Disposition');
 
 // let fileName = 'CRMSREPORT'.pdf;  // Default filename
 
-let fileName = 'CRMSREPORT.xlsx';  // Default filename
+// let fileName = 'CRMSREPORT.xlsx';  // Default filename
+let fileName = 'CRMSREPORT.csv';  // Default filename
 
 
 // Ensure response.body is not null
@@ -171,6 +172,7 @@ region_summary_header = [
   'Region',
   'Retention Limit',
   'Previous Day Cash On Hand',
+  'Cash Difference',
   'Date'
 ];
 

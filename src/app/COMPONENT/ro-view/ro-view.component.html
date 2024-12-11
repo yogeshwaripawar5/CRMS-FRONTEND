@@ -2,7 +2,7 @@
 
 <div class="dropdown"></div>
 
-
+<!-- 
   <button
     class="btn btn-success"
   style="margin: 10px; max-width: 25%; min-width: 25%;"
@@ -13,47 +13,82 @@
       Download Report
     </span>
  
-</button>
-  
+</button> -->
 
+&nbsp;&nbsp;
+<button class="btn btn-primary " type="button" aria-expanded="false" style="width: 250px; align-items: center;"
+  (click)="downloadReport(region)">Download  Report</button>
+<div class="container" style="position: absolute; right: 20px; width: 550px; top: 150px; ">
+
+
+  <table class=" table table-hover table-responsive table-common-border text-center   ">
+    <th style="color: black;">
+      As On</th>
+
+    <th style="color: black;">
+      <!-- <img src="assets/mgb.png"  sizes="128x128" alt="Logo" class="logo"> -->
+
+
+      Total Retention Limit
+    </th>
+    <th style="color: black;"> Previous Day Cash On Hand</th>
+
+    <tbody>
+      <tr *ngFor="let b of individualRoSummary;">
+
+        <td> <img src="assets/calender.png" alt="Image"
+            style="vertical-align: middle; width: 30px; height: 30px; margin-right: 5px;">
+          {{b.submitDate| date:'d MMM yyyy'}}</td>
+
+        <td> <img src="assets/rupee.png" alt="Image" style="vertical-align: middle; width: 15px; height: 15px; ">
+
+          {{b.retentionLimitSum}}/-</td>
+        <td> <img src="assets/rupee.png" alt="Image" style="vertical-align: middle; width: 15px; height:15px;">
+          {{b.previousDayCashOnHandSum}}/-</td>
+
+      </tr>
+    </tbody>
+
+
+  </table>
+
+</div>
+<br><br><br><br>
 
 <div class="main-heading">BRANCH CASH REQUIREMENT</div>
 <div class="mt-4"></div>
 
-    <!-- <div class="card "> -->
-        <!-- <div class="card-body"> -->
 
-            
-    
+         <div>
+          <div class="card card-custom  container-fluid pb-2 custom-styles" style="width: 80%; ">
+ 
     <div class="container">
   
 
       <h2 *ngIf="branchDemandDetailArray.length === 0" class="text-danger text-center">
         No Cash Requirement.
       </h2>
-      <div class="card-body">
+      <div class="card-body" style="width: 100%;">
       <div *ngIf="branchDemandDetailArray.length > 0">
-      <table class=" table table-hover table-responsive table-common-border text-center  table-bordered " >
-        <!-- <div class="card table-common-border container-fluid pb-2 custom-styles" style="width: 80%; "> -->
+      <table class=" table table-hover table-responsive table-common-border text-center  table-bordered  " >
 
-        <thead class="theadclass">
+        <thead style="border-color: black;">
             <th
-              class="header"
+              class="header" 
               *ngFor="let header of branch_cash_requirement_header">
               {{ header }}
             </th>
         </thead>
-        <tbody> 
+        <tbody style="background: transparent;"> 
             <tr *ngFor="let branchList of branchDemandDetailArray; let h=index">
                   <td>{{h+1}}</td>
                   <td>{{ branchList.brcode}}</td>
                   <td>{{ branchList.branchName }}</td>
                   <td>{{ branchList.blockName }}</td>
+                  <td>{{ branchList.otherBankAc | arrayToString}}</td>
                   <td class="text-end">{{ branchList.retentionLimit }} /-</td>
-
                   <td class="text-end">{{ branchList.previousDayCashOnHand || 'NA'}} /- </td>
-                  <td class="text-end">
-                   {{ branchList.soiledCurrencyAmount || 'NA' }}
+                  <td class="text-end"> {{ branchList.soiledCurrencyAmount || 'NA' }}
                     <span *ngIf="branchList.soiledCurrencyAmount">{{ '/ -' }}</span>
                   </td>
 
@@ -61,7 +96,19 @@
                     {{ branchList.cashDemand || 'NA' }}
                      <span *ngIf="branchList.cashDemand">{{ '/ -' }}</span>
                    </td>
-                                  <td class="text-end">{{ branchList.cashDemand }} /-</td>
+
+                   <td class="text-end">
+                    {{ branchList.excessCashForRemittance || 'NA' }}
+                     <span *ngIf="branchList.excessCashForRemittance">{{ '/ -' }}</span>
+                   </td>
+
+                   <td class="text-end">
+                    {{ branchList.cashDemand || 'NA' }}
+                     <span *ngIf="branchList.cashDemand">{{ '/ -' }}</span>
+                   </td>
+                                  <!-- <td class="text-end">{{ branchList.cashDemand }} /-</td> -->
+
+                                  
                   <!-- <td class="text-end">{{ branchList.probableCashOnHand }}%-</td> -->
              
                   <!-- <td class="text-center">
@@ -77,8 +124,9 @@
       
         </div> 
     </div> 
+          </div>
 
-   
+  </div>   
 
 
 <!-- </div> -->

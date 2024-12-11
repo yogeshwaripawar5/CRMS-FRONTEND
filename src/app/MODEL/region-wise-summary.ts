@@ -2,7 +2,7 @@ export interface RegionWiseSummary {
 
     retentionLimitSum:number,
     previousDayCashOnHandSum:number,
-
+    retentionAndCashOnHandDiff:number,
     region:string,
     submitDate:string,
 

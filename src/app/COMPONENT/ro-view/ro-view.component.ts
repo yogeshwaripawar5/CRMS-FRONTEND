@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, Pipe } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, finalize, throwError } from 'rxjs';
 import { BranchDemandDetail } from 'src/app/MODEL/branch-demand-detail';
@@ -13,6 +13,7 @@ import { RoViewService } from 'src/app/SERVICE/ro-view.service';
   templateUrl: './ro-view.component.html',
   styleUrls: ['./ro-view.component.css']
 })
+
 export class RoViewComponent {
 
   branchDemandDetail = {} as BranchDemandDetail;
@@ -83,12 +84,13 @@ export class RoViewComponent {
     'Branch Code',
     'Branch Name',
     'Block',
+    'Other Bank Accounts',
     'Cash Retention Limit',
     'Previous Day Cash On Hand',
     'Soiled Cash',
-
     'Probable Cash On Hand',
-    'Cash Request',
+    'Cash Requirement',
+    'Excess Cash For Remittance'
     // 'Retention Limit',
     // 'Retention %',
      
@@ -215,7 +217,8 @@ const contentDisposition = response.headers.get('Content-Disposition');
 
 // let fileName = 'CRMSREPORT'.pdf;  // Default filename
 
-let fileName = 'CRMSREPORT.xlsx';  // Default filename
+// let fileName = 'CRMSREPORT.xlsx';  // Default filename
+let fileName = 'CRMSREPORT.csv';  // Default filename
 
 
 // Ensure response.body is not null

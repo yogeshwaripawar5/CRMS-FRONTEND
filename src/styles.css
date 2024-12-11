@@ -34,6 +34,12 @@ body {
     background-color: transparent;
 }
 
+.card.card-custom {
+    border-width: 2px;
+    border-color: white;
+    background-color: transparent;
+}
+
 .card input {
     border-width: 1px;
     border-color: black;
@@ -43,6 +49,20 @@ body {
     border-width: 1px;
     border-color: black;
 }
+
+.thead-class {
+    border: 2px solid #000;  /* Add border around the thead */
+    background-color: #f1f1f1;  /* Set a background color for the header */
+  }
+  
+  /* Optionally, you can set individual header cell styles */
+  .thead-class th {
+    border: 1px solid #020202;  
+    /* Add borders to each header cell */
+    padding: 10px;  /* Optional padding for header cells */
+    text-align: center;  /* Optional: Center-align header text */
+    font-weight: bold;  /* Make the header text bold */
+  }
 
 .form-group textarea {
     border: 1px solid black;
@@ -76,11 +96,24 @@ label {
     border-radius: 4px;  /* Optional: set border radius */
 }
 
+
+
 .table.table-common-border {
     border: 2px solid brown;
     box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
     background: transparent;
     border-radius: 4px;  /* Optional: set border radius */
+}
+
+.container.table-common-border {
+    border: 2px solid brown;
+    box-shadow: 0 0px 10px 0 rgba(43, 159, 1, 0.2);
+    background: transparent;
+    border-radius: 4px;  /* Optional: set border radius */
+}
+
+.table-transparent {
+    background: transparent ;  /* Ensures the table background is transparent */
 }
 
 .table-common-border tr, th, td {
@@ -92,15 +125,23 @@ label {
     background-color: transparent;
 }
 
-.table-common-border th {
+.table.table-common-border th {
     background-color: transparent;
     color: white;
+    border-color: black;
 }
 
 .table tbody>tr>td {
     vertical-align: middle;
+    height: auto; /* Allow the row to adjust based on content */
+
 }
 
+
+.table tbody tr {
+    height: auto; /* Allow the row to adjust based on content */
+  }
+  
 .btn-w {
     width: 15%;
 }
@@ -110,6 +151,8 @@ label {
     background-color: rgb(134, 73, 73);
     width: 50px;
     color: white;
+    border-color: black;
+
 }
 
 
@@ -155,6 +198,8 @@ body {
 
 .trhead{
     background-color: antiquewhite;
+    border-color: black;
+
     color: rgb(80, 4, 4);
     font-weight: bold;
      font-size: 16px;

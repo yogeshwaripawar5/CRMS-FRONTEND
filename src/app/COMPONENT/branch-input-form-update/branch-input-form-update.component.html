@@ -283,6 +283,25 @@
             <div *ngIf="demandReason.errors['required']">Cash Requirement reason is required</div>
             </div>
           <div class="mt-4"></div>
+
+
+
+          
+          <!-- ************************************** EXCESS CASH FOR REMITTANCE *********************************************************************************** -->
+
+          <label for="excessCashForRemittance">Enter Excess Cash For Remittance:
+            <span style="color: red; font-size: 18px;">*</span>
+          </label>
+          <div>
+            <input type="number" id="excessCashForRemittance" class="form-control" placeholder="Excess Cash For Remmitance"
+              name="excessCashForRemittance" class="form-control inputfield" [(ngModel)]="branchDemandDetail.excessCashForRemittance"
+              [ngClass]="{ 'is-invalid': f.submitted && excessCashForRemittance.errors }" #excessCashForRemittance="ngModel" required/>
+          </div>
+  
+          <div *ngIf="f.submitted && excessCashForRemittance.errors " class="text-danger">
+          <div *ngIf="excessCashForRemittance.errors['required']">Excess Cash For Remittance Required</div>
+          </div>
+        <div class="mt-4"></div>
   
         </div>
 

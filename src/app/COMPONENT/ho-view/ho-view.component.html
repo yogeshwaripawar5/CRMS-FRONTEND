@@ -1,11 +1,10 @@
-
 <app-header></app-header>
 
 
 <!-- <div class="dropdown"></div> -->
 
 
-  <!-- <button
+<!-- <button
     class="btn btn-success"
   style="margin: 10px; max-width: 25%; min-width: 25%;"
   (click)="downloadReport()"
@@ -17,57 +16,54 @@
  
 </button> -->
 &nbsp;&nbsp;
-<button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;" (click)="downloadReport()">Download Console Report</button>
-<div class="container" style="position: absolute; right: 0; width: 300px; background-color: aqua;">
+<button class="btn btn-primary " type="button" aria-expanded="false" style="width: 250px; align-items: center;"
+  (click)="downloadReport()">Download Console Report</button>
+<div class="container" style="position: absolute; right: 20px; width: 550px; top: 150px; ">
 
 
-<!-- <button  class="btn btn-primary " type="button"  aria-expanded="false" style="width: 250px; align-items: center;" (click)="downloadReport()">Download Console Report</button> -->
+  <table class=" table table-hover table-responsive table-common-border text-center   ">
+    <th style="color: black;">
+      As On</th>
 
-<!-- <div class="parent-container">  -->
-   <!-- <div class="flex-item">Total Retention Limit </div> -->
-  <!-- <div class="grid-item" style=" align-items: flex-end;" >
-    <span class="label">Total Retention Limit: </span>
-    <span class="value" id="retentionValue">{{bankSummary.previousDayCashOnHandSum}}</span>
-  </div>
-  <div class="flex-item">Previous Day Cash On Hand</div>
-  <div class="flex-item">As on </div></div> -->
-<!-- </div> -->
+    <th style="color: black;">
+      <!-- <img src="assets/mgb.png"  sizes="128x128" alt="Logo" class="logo"> -->
 
 
-<table style="position: relative;">
-  <th> As On</th>
-
-  <th>
-    
       Total Retention Limit
-     </th>
-     <th> Previous Day Cash On Hand</th>
+    </th>
+    <th style="color: black;"> Previous Day Cash On Hand</th>
 
-     <tbody>
+    <tbody>
       <tr *ngFor="let b of bankSummary;">
-        <td>{{b.submitDate}}</td>
 
-        <td>{{b.retentionLimitSum}}</td>
-      <td> {{b.previousDayCashOnHandSum}}</td>
-       
+        <td> <img src="assets/calender.png" alt="Image"
+            style="vertical-align: middle; width: 30px; height: 30px; margin-right: 5px;">
+          {{b.submitDate| date:'d MMM yyyy'}}</td>
+
+        <td> <img src="assets/rupee.png" alt="Image" style="vertical-align: middle; width: 15px; height: 15px; ">
+
+          {{b.retentionLimitSum}}/-</td>
+        <td> <img src="assets/rupee.png" alt="Image" style="vertical-align: middle; width: 15px; height:15px;">
+          {{b.previousDayCashOnHandSum}}/-</td>
+
       </tr>
-     </tbody>
-   
+    </tbody>
 
-</table>
+
+  </table>
 
 </div>
 
 <!-- <div class="parent-container">  -->
-   <!-- <div class="flex-item">Total Retention Limit </div> -->
-  <!-- <div class="grid-item">
+<!-- <div class="flex-item">Total Retention Limit </div> -->
+<!-- <div class="grid-item">
     <span class="label">Total Retention Limit: </span>
     <span class="value" id="retentionValue">15</span>
   </div>
   <div class="flex-item">Previous Day Cash On Hand</div>
   <div class="flex-item">Item 3</div></div> -->
 
-  <!-- <div class="parent-container">
+<!-- <div class="parent-container">
     <div class="flex-container">
       <div class="flex-item">Total Retention Limit: <span class="value" id="retentionValue">15</span></div>
       <div class="flex-item">Other item</div>
@@ -87,52 +83,48 @@ style="text-align:center; "
 <span id="ctl00_head_Label1" style="float:left; margin-left:10px;">Previous Day Cash On Hand</span>
 <span id="ctl00_head_Label2" style="font-weight:bold;float:left;margin-left:10px;">{{bankSummary.previousDayCashOnHandSum}}</span> -->
 
-<div></div><br>
+<div></div><br><br><br><br>
 <div class="main-heading">REGION WISE CASH SUMMARY</div>
 <div class="mt-4"></div>
 
-    <!-- <div class="card "> -->
-        <!-- <div class="card-body"> -->
+<!-- <div class="card "> -->
+<!-- <div class="card-body"> -->
 
-            
-    
-    <div class="container">
-  
 
-      <h2 *ngIf="regionWiseSummary.length === 0" class="text-danger text-center">
-        No Data Available.
-      </h2>
-      <div class="card-body">
-      <div *ngIf="regionWiseSummary.length > 0">
-      <table class=" table table-hover table-responsive table-common-border text-center  table-bordered " >
-        <!-- <div class="card table-common-border container-fluid pb-2 custom-styles" style="width: 80%; "> -->
+<!-- class="card table-common-border container-fluid pb-2 custom-styles" -->
+<div class="container table-transparent ">
 
-        <thead class="theadclass">
-            <th 
-              class="header"
-              *ngFor="let header of region_summary_header" >
-              {{ header }} 
-            </th>
-        </thead>
-        <tbody> 
-            <tr *ngFor="let regionList of regionWiseSummary; let h=index">
-                  <td>{{ regionList.region}}</td>
-                  <td>{{ regionList.retentionLimitSum }}</td>
-                  <td>{{ regionList.previousDayCashOnHandSum }}</td>
-                  <td>{{ regionList.submitDate }}</td>
-                
-            </tr>
-        </tbody>
-        </table>
-        
 
-        </div>
-      
-        </div> 
-    </div> 
+  <div *ngIf="regionWiseSummary.length > 0;">
+    <table
+      class=" table table-hover table-responsive table-common-border text-center  table-bordered table-transparent">
 
-   
+      <thead class="theadclass">
+        <th class="header" *ngFor="let header of region_summary_header">
+          {{ header }}
+        </th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let regionList of regionWiseSummary; let h=index">
+          <td>{{ regionList.region}}</td>
+          <td>{{ regionList.retentionLimitSum }}</td>
+          <td>{{ regionList.previousDayCashOnHandSum }}</td>
+          <td>{{ regionList.retentionAndCashOnHandDiff }}</td>
+
+          <td>{{ regionList.submitDate | date:'d MMM yyyy' }}</td>
+
+        </tr>
+      </tbody>
+    </table>
+
+
+  </div>
+
+  <!-- </div>  -->
+</div>
+
+
 
 
 <!-- </div> -->
-    <!-- </div> -->
+<!-- </div> -->
